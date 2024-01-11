@@ -1,8 +1,8 @@
 # Fast Temp Files
 
 ![Build](https://github.com/stykalin/fast-temp-files/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/ru.stykalin.FastTempFiles.svg)](https://plugins.jetbrains.com/plugin/23506-fast-temp-files)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/ru.stykalin.FastTempFiles.svg)](https://plugins.jetbrains.com/plugin/23506-fast-temp-files)
+[![Version](https://img.shields.io/jetbrains/plugin/v/23506.svg)](https://plugins.jetbrains.com/plugin/23506)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/23506.svg)](https://plugins.jetbrains.com/plugin/23506)
 
 <!-- Plugin description -->
 Plugin allows you to create temporary file in two touch.  
@@ -14,3 +14,4 @@ and select the desired file type.
 Configure names and file extensions in the plugin settings.  
 <img src="https://raw.githubusercontent.com/stykalin/fast-temp-files/master/img/settings.png" title="Settings dialog" width="600" />
 <!-- Plugin description end -->
+Get from [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/23506-fast-temp-files)
