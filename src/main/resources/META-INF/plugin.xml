@@ -1,0 +1,25 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>ru.stykalin.FastTempFiles</id>
+    <name>Fast Temp Files</name>
+    <vendor>Stykalin</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.idea</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationConfigurable parentId="tools"
+                                 instance="ru.stykalin.fasttempfiles.settings.FTFAppSettingsConfigurable"
+                                 id="ru.stykalin.fasttempfiles.settings.FTFAppSettingsConfigurable"
+                                 displayName="Fast Temp Files"/>
+    </extensions>
+
+    <actions>
+        <action class="ru.stykalin.fasttempfiles.action.FastTempFilesAction">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+            <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFile"/>
+            <keyboard-shortcut first-keystroke="control alt BACK_SLASH" keymap="$default"/>
+        </action>
+    </actions>
+
+</idea-plugin>
