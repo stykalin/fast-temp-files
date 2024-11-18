@@ -12,7 +12,7 @@ import com.intellij.openapi.util.io.FileUtilRt
 import ru.stykalin.fasttempfiles.settings.FTFAppSettingsState
 import ru.stykalin.fasttempfiles.settings.FTFType
 
-class CreateTempFileSwitchScheme : QuickSwitchSchemeAction(false) {
+class CreateTempFileSwitchSchemeAction : QuickSwitchSchemeAction(false) {
     override fun getPopupTitle(e: AnActionEvent): String = "Create Temp File"
 
     override fun fillActions(project: Project, group: DefaultActionGroup, dataContext: DataContext) {

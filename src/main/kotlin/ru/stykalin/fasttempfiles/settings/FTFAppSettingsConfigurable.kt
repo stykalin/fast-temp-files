@@ -6,7 +6,7 @@ import javax.swing.JComponent
 class FTFAppSettingsConfigurable : Configurable {
     private lateinit var settingsComponent: FTFAppSettingsComponent
 
-    override fun getDisplayName(): String = "AT Helper App Settings"
+    override fun getDisplayName(): String = "Fast Temp Files"
 
     override fun createComponent(): JComponent {
         settingsComponent = FTFAppSettingsComponent()

@@ -15,7 +15,11 @@
     </extensions>
 
     <actions>
-        <action class="ru.stykalin.fasttempfiles.action.FastTempFilesAction">
+        <action id="ru.stykalin.fasttempfiles.CreateTempFileSwitchSchemeAction"
+                class="ru.stykalin.fasttempfiles.action.CreateTempFileSwitchSchemeAction"
+                text="Create Temp File"
+                icon="AllIcons.Actions.InlayRenameInNoCodeFiles"
+        >
             <add-to-group group-id="GenerateGroup" anchor="last"/>
             <add-to-group group-id="NewGroup" anchor="before" relative-to-action="NewFile"/>
             <keyboard-shortcut first-keystroke="control alt BACK_SLASH" keymap="$default"/>
