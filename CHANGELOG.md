@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.0.3] - 2025-04-05
+
+### Changed
+
+- Up to IDEA platform 2025.1+
+
 ## [0.0.2] - 2024-11-17
 
 ### Changed

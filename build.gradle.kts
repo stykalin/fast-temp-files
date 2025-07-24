@@ -17,7 +17,7 @@ version = properties("pluginVersion").get()
 
 // Set the JVM language level used to build the project.
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 repositories {
@@ -30,8 +30,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create(properties("platformType"), properties("platformVersion"))
-        instrumentationTools()
+        create(type = properties("platformType"), version = properties("platformVersion"), useInstaller = false)
         pluginVerifier()
         zipSigner()
     }
@@ -71,6 +70,7 @@ intellijPlatform {
 
         ideaVersion {
             sinceBuild = properties("pluginSinceBuild")
+            untilBuild = provider { null }
         }
     }
 
