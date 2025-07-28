@@ -14,7 +14,8 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 @Service(Service.Level.APP)
 class FTFAppSettingsState(
     var fileTypes: List<FTFType> = DEFAULT_TYPES,
-    var showWithName: Boolean = false
+    var showWithName: Boolean = false,
+    var showExistedFTF: Boolean = true
 ) : PersistentStateComponent<FTFAppSettingsState> {
     override fun getState(): FTFAppSettingsState = this
 

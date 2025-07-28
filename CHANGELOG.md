@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.0.4] - 2025-07-25
+
+### Added
+
+- Added the ability to open previously created and existing fast temp files
+
 ## [0.0.3] - 2025-04-05
 
 ### Changed

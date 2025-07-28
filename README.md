@@ -4,11 +4,11 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/23506.svg)](https://plugins.jetbrains.com/plugin/23506)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/23506.svg)](https://plugins.jetbrains.com/plugin/23506)
 
-<img src="https://raw.githubusercontent.com/stykalin/fast-temp-files/master/img/create-menu.png" title="Create menu" width="420"/>
-<img src="https://raw.githubusercontent.com/stykalin/fast-temp-files/master/img/settings.png" title="Settings dialog" width="600" />
+<img src="https://raw.githubusercontent.com/stykalin/fast-temp-files/master/img/show-exiting.png" title="Create menu" width="420" alt="show-exiting"/>
+<img src="https://raw.githubusercontent.com/stykalin/fast-temp-files/master/img/show-existing-settings.png" title="Settings dialog" width="600"  alt="show-existing-settings"/>
 
 <!-- Plugin description -->
-**Fast Temp Files** plugin allows you to create temporary file in two touch.  
+**Fast Temp Files** plugin allows you to create temporary file in two touch.
 
 Just use default keyboard shortcut: `control + alt + \ ` (_backslash_)  
 and select the desired file type.

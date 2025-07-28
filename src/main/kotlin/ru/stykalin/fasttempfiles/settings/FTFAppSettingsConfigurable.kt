@@ -10,7 +10,7 @@ class FTFAppSettingsConfigurable : Configurable {
 
     override fun createComponent(): JComponent {
         settingsComponent = FTFAppSettingsComponent()
-        return settingsComponent.panel
+        return settingsComponent.ftfSettingPanel
     }
 
     override fun isModified(): Boolean {

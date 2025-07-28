@@ -1,20 +1,23 @@
 package ru.stykalin.fasttempfiles.settings
 
-import com.intellij.openapi.ui.Messages.*
+import com.intellij.openapi.ui.DialogPanel
+import com.intellij.openapi.ui.Messages.YES
+import com.intellij.openapi.ui.Messages.getNoButton
+import com.intellij.openapi.ui.Messages.getWarningIcon
+import com.intellij.openapi.ui.Messages.getYesButton
+import com.intellij.openapi.ui.Messages.showDialog
 import com.intellij.ui.TableUtil
 import com.intellij.ui.ToolbarDecorator
-import com.intellij.ui.components.JBCheckBox
 import com.intellij.ui.dsl.builder.Align
+import com.intellij.ui.dsl.builder.bindSelected
 import com.intellij.ui.dsl.builder.panel
 import com.intellij.ui.table.JBTable
-import javax.swing.JPanel
 
 class FTFAppSettingsComponent {
 
     private val settings = FTFAppSettingsState.getInstance()
     private val model: FTFTableModel = FTFTableModel(typeList = settings.fileTypes.toMutableList())
-    private val withName: JBCheckBox = JBCheckBox("Show names in list")
-    val panel: JPanel
+    val ftfSettingPanel: DialogPanel
     var isDataChanged: Boolean = false
 
     init {
@@ -29,10 +32,13 @@ class FTFAppSettingsComponent {
             .setMoveUpAction { TableUtil.moveSelectedItemsUp(table) }
             .setMoveDownAction { TableUtil.moveSelectedItemsDown(table) }
             .createPanel()
-        panel = panel {
+        ftfSettingPanel = panel {
             row {
-                cell(withName)
+                checkBox("Show names in list").bindSelected(settings::showWithName)
                 contextHelp("Full file name will be shown in Create Temp File dialog", "Names in list")
+
+                checkBox("Show exiting FTFiles in list").bindSelected(settings::showExistedFTF)
+                contextHelp("Existing temp files will be shown in Create Temp File dialog", "Existing files in list")
 
                 button("Load Defaults") {
                     val msg =
@@ -52,12 +58,12 @@ class FTFAppSettingsComponent {
     fun saveData() {
         settings.fileTypes = model.typeList
         model.fireTableDataChanged()
-        settings.showWithName = withName.isSelected
+        ftfSettingPanel.apply()
     }
 
     fun resetData(fileTypes: List<FTFType> = settings.fileTypes) {
         model.resetData(fileTypes)
         model.fireTableDataChanged()
-        withName.isSelected = settings.showWithName
+        ftfSettingPanel.reset()
     }
 }
