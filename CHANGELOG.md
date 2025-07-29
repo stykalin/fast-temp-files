@@ -4,6 +4,12 @@
 
 ## [Unreleased]
 
+## [0.0.5] - 2025-07-29
+
+### Added
+
+- Added the display location of existing files in the 'Create Temp File' dialog. Default value is `BOTTOM`.
+
 ## [0.0.4] - 2025-07-25
 
 ### Added

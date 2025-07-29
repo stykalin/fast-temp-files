@@ -11,6 +11,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.util.io.FileUtilRt
 import ru.stykalin.fasttempfiles.settings.FTFAppSettingsState
+import ru.stykalin.fasttempfiles.settings.FTFExistingDisplayLocation.BOTTOM
+import ru.stykalin.fasttempfiles.settings.FTFExistingDisplayLocation.TOP
 import ru.stykalin.fasttempfiles.settings.FTFType
 import java.io.File
 
@@ -20,8 +22,16 @@ class CreateTempFileSwitchSchemeAction : QuickSwitchSchemeAction(false) {
     override fun fillActions(project: Project, group: DefaultActionGroup, dataContext: DataContext) {
         val ftfSetting = FTFAppSettingsState.getInstance()
         val showWithName = ftfSetting.showWithName
-        if (ftfSetting.showExistedFTF) addExistingTempFiles(project = project, group = group, ftfSetting = ftfSetting)
+
+        if (ftfSetting.showExistingFTF && ftfSetting.existingDisplayLocation == TOP) {
+            addExistingTempFiles(project = project, group = group, ftfSetting = ftfSetting)
+        }
+
         ftfSetting.fileTypes.forEach { group.add(getTmpFileAction(fileType = it, showWithName = showWithName)) }
+
+        if (ftfSetting.showExistingFTF && ftfSetting.existingDisplayLocation == BOTTOM) {
+            addExistingTempFiles(project = project, group = group, ftfSetting = ftfSetting)
+        }
     }
 
     /** Add group with existing fast temp files (if created) */
@@ -42,8 +52,9 @@ class CreateTempFileSwitchSchemeAction : QuickSwitchSchemeAction(false) {
                     DumbAwareAction.create(ftFile.name, ActionExistIcon) { openFile(filePath = ftFile.path, project = project) }
                 )
             }
+            if (ftfSetting.existingDisplayLocation == BOTTOM) group.addSeparator("Existing Fast Temp Files")
             group.add(existingTempFilesGroup)
-            group.addSeparator()
+            if (ftfSetting.existingDisplayLocation == TOP) group.addSeparator()
         }
     }
 

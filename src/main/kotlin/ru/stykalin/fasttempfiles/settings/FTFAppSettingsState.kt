@@ -6,6 +6,7 @@ import com.intellij.openapi.components.Service
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
+import ru.stykalin.fasttempfiles.settings.FTFExistingDisplayLocation.BOTTOM
 
 @State(
     name = "ru.stykalin.fasttempfiles.settings.FTFAppSettingsState",
@@ -15,7 +16,8 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 class FTFAppSettingsState(
     var fileTypes: List<FTFType> = DEFAULT_TYPES,
     var showWithName: Boolean = false,
-    var showExistedFTF: Boolean = true
+    var showExistingFTF: Boolean = true,
+    var existingDisplayLocation: FTFExistingDisplayLocation = BOTTOM
 ) : PersistentStateComponent<FTFAppSettingsState> {
     override fun getState(): FTFAppSettingsState = this
 

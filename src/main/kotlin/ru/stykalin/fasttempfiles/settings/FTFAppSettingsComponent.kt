@@ -9,8 +9,10 @@ import com.intellij.openapi.ui.Messages.showDialog
 import com.intellij.ui.TableUtil
 import com.intellij.ui.ToolbarDecorator
 import com.intellij.ui.dsl.builder.Align
+import com.intellij.ui.dsl.builder.bindItem
 import com.intellij.ui.dsl.builder.bindSelected
 import com.intellij.ui.dsl.builder.panel
+import com.intellij.ui.dsl.builder.toNullableProperty
 import com.intellij.ui.table.JBTable
 
 class FTFAppSettingsComponent {
@@ -37,9 +39,6 @@ class FTFAppSettingsComponent {
                 checkBox("Show names in list").bindSelected(settings::showWithName)
                 contextHelp("Full file name will be shown in Create Temp File dialog", "Names in list")
 
-                checkBox("Show exiting FTFiles in list").bindSelected(settings::showExistedFTF)
-                contextHelp("Existing temp files will be shown in Create Temp File dialog", "Existing files in list")
-
                 button("Load Defaults") {
                     val msg =
                         "You are about to load the default list of file extensions.\n\nPlease note that <b>all your custom values will be lost</b>.\n\nAre you sure you want to continue?"
@@ -47,6 +46,16 @@ class FTFAppSettingsComponent {
                     if (answer == YES) resetData(fileTypes = FTFAppSettingsState.DEFAULT_TYPES)
                 }.enabledIf(model.typesChanged)
                 contextHelp("This action loads the default list of file extensions.", "Load defaults")
+            }
+            row {
+                checkBox("Show exiting FTFiles in list").bindSelected(settings::showExistingFTF)
+                contextHelp("Existing temp files are displayed in 'Create Temp File' dialog", "Existing files in list")
+
+                comboBox(FTFExistingDisplayLocation.entries).bindItem(settings::existingDisplayLocation.toNullableProperty())
+                contextHelp(
+                    "The location where existing temp files are displayed in the 'Create Temp File' dialog: at the TOP or at the BOTTOM of the list.",
+                    "Existing files display location in list"
+                )
             }
 
             row {
